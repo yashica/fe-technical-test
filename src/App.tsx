@@ -1,26 +1,70 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import {connect} from "react-redux";
+import {StoreType} from "./redux/models/StoreType";
+import Genres from "./containers/Genres";
+import Movies from "./containers/Movies";
+import Details from "./containers/Details";
+
+type PropsType = {
+  dispatch: any,
+  loading: boolean
+};
+
+const App = (props: PropsType) => {
+
+  const renderContent = () => {
+    if(props.loading){
+      return(
+          <div className="App-content">
+            <p>Loading</p>
+          </div>
+      )
+    }
+    return(
+    <Switch>
+      <Route path="/details/:movieId">
+        <Details />
+      </Route>
+      <Route path="/movies/:genreId">
+        <Movies />
+      </Route>
+      <Route path="/">
+        <Genres />
+      </Route>
+    </Switch>
+    );
+  }
+
+  return(
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <Link to={"/"}>
+              <p className="App-title">
+                All of the movies
+              </p>
+            </Link>
+          </header>
+        </div>
+        {
+          renderContent()
+        }
+      </Router>
   );
 }
 
-export default App;
+function mapStateToProps(state: StoreType) {
+  return {
+    loading: state.view.loading
+  }
+}
+
+export default connect(mapStateToProps)(App);
