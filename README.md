@@ -1,3 +1,16 @@
+# FE-technical-test
+
+This project is a technical test as base for a project interview.
+
+The typescript react app shows a list of movie genres, the corresponding movies to each genre and details of each movie.
+
+Data is provided from [The Movie DB](https://www.themoviedb.org/) API.
+
+Additional libaries in use:
+- react-pagination
+- react-redux
+- react-router-dom
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
