@@ -24,17 +24,26 @@
 
 .App-header {
   background-color: #282c34;
-  height: 100px;
+  background-image: url(headerImg.jpg);
+  background-position: 50% 75%;
+  background-size: cover;
+  height: 120px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .App-title {
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /*font-size: calc(10px + 2vmin);
+  color: white;*/
+  font-size: calc(30px + 2vmin);
+  font-weight: bold;
+  /*text-shadow: 0 0 5px white;*/
+  color: #fff;
   text-decoration: none;
+  padding: 20px;
 }
 
 .App-link {
