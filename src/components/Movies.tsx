@@ -27,7 +27,7 @@ const MoviesComponent = (props: PropsType) => {
   };
 
   let list = props.movies.map((movie, index) => (
-    <div className="App-list Galery-item" key={"movie" + movie.id}>
+    <div className="App-list Card" key={"movie" + movie.id}>
       <a onClick={() => props.onClick(movie.id)}>
         <figure>
           {renderImage(index)}
@@ -57,8 +57,8 @@ const MoviesComponent = (props: PropsType) => {
 
   return (
     <div className="App-content">
-      <h4>{props.title}</h4>
-      <div className="Galery-container">{list}</div>
+      <h3>{props.title}</h3>
+      <div className="MovieGallery">{list}</div>
       <ReactPaginate
         // api pages start at 1 not 0
         initialPage={props.page - 1}
