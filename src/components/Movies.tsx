@@ -57,7 +57,7 @@ const MoviesComponent = (props: PropsType) => {
 
   return (
     <div className="App-content">
-      <h3>{props.title}</h3>
+      <h2>{props.title}</h2>
       <div className="MovieGallery">{list}</div>
       <ReactPaginate
         // api pages start at 1 not 0

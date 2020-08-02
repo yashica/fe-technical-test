@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+h1 {
+  color: #ffff;
+}
+
+h2,
+h3 {
+  color: #603403;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -23,11 +32,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #100702;
   background-image: url(headerImg.jpg);
   background-position: 50% 75%;
   background-size: cover;
-  height: 120px;
+  height: 140px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -41,18 +50,20 @@
   font-size: calc(30px + 2vmin);
   font-weight: bold;
   /*text-shadow: 0 0 5px white;*/
-  color: #fff;
+  /*color: #fff;*/
   text-decoration: none;
   padding: 20px;
+  color: #ffff;
 }
 
 .App-link {
-  color: #61dafb;
+  color: rgb(24, 122, 124);
+  text-decoration: none;
 }
 
 .App-content {
   /*background-color: #ddd;*/
-  background-color: rgb(241, 78, 78);
+  background-color: rgb(24, 122, 124);
   min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
@@ -63,7 +74,7 @@
   align-items: center;
   justify-content: flex-start;
   font-size: calc(10px + 1vmin);
-  color: #333;
+  /*color: #333;*/
 }
 
 .GenreContainer {
@@ -72,7 +83,7 @@
   align-self: center;*/
   /*background-color: #ddd;*/
   margin: 10%;
-  background-color: rgb(241, 78, 78);
+  background-color: rgb(24, 122, 124);
   /*min-height: calc(100vh - 100px);*/
   display: flex;
   flex-flow: row wrap;
@@ -81,9 +92,15 @@
   justify-content: flex-start;
 }
 
+.GenreName {
+  color: #603403;
+  font-weight: bold;
+  text-align: center;
+}
+
 .MovieGallery {
   /*background-color: #ddd;*/
-  background-color: rgb(241, 78, 78);
+  background-color: rgb(24, 122, 124);
   /*min-height: calc(100vh - 100px);*/
   display: flex;
   flex-wrap: wrap;
@@ -98,6 +115,9 @@
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .DetailsCard {
   margin: 10%;
@@ -125,6 +145,8 @@
 .Movie-figcaption {
   text-align: justify;
   width: 90%;
+  color: #603403;
+  font-weight: 500;
 }
 
 /*reduce space around Cards for horizontal layout on medium wide screens*/
@@ -168,7 +190,7 @@
   align-items: center;
   justify-content: center;
   list-style: none;
-  background-color: #333;
+  /*background-color: #333;*/
 }
 
 .Pagination-page {
