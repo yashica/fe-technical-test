@@ -2,15 +2,6 @@
   text-align: center;
 }
 
-h1 {
-  color: #ffff;
-}
-
-h2,
-h3 {
-  color: #603403;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -44,6 +35,10 @@ h3 {
   text-decoration: none;
 }
 
+.App-header > a {
+  text-decoration: none;
+}
+
 .App-title {
   /*font-size: calc(10px + 2vmin);
   color: white;*/
@@ -51,7 +46,7 @@ h3 {
   font-weight: bold;
   /*text-shadow: 0 0 5px white;*/
   /*color: #fff;*/
-  text-decoration: none;
+  /*text-decoration: none;*/
   padding: 20px;
   color: #ffff;
 }
@@ -105,6 +100,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
+  position: relative;
 }
 
 .Card {
@@ -118,13 +114,16 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.DetailsCard {
-  margin: 10%;
+  width: calc(50%-1rem);
+  /*max-width: 30%;*/
 }
 
 .Card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.Card--DetailsCard {
+  margin: 10%;
 }
 
 /*
