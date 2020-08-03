@@ -20,6 +20,15 @@ const DetailsComponent = (props: PropsType) => {
     }
   };
 
+  //Do we have recommendations for that movie?
+  const recommendationsAvailable =
+    props.details.recommendations && props.details.recommendations.length > 0;
+
+  if (recommendationsAvailable) {
+    console.log("RecommendationsAvailable = TRUE ");
+    console.log(props.details.recommendations);
+  }
+
   return (
     <div className="App-content">
       <div className="Card DetailsCard">
@@ -29,6 +38,10 @@ const DetailsComponent = (props: PropsType) => {
             <h3>{props.details.title}</h3>
             <p>{props.details.overview}</p>
             <p>Release: {props.details.release_date}</p>
+            <p>
+              Recommendations available:{" "}
+              {recommendationsAvailable ? "TRUE" : "FALSE"}
+            </p>
           </div>
         </div>
       </div>
