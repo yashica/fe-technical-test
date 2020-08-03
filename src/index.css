@@ -7,18 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*global font styling*/
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/*global header styling*/
 
 h1 {
   color: #ffff;
 }
 
 h2,
-h3 {
+h3,
+h4 {
   color: #603403;
 }
