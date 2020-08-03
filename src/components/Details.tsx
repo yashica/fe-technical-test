@@ -38,7 +38,10 @@ const DetailsComponent = (props: PropsType) => {
       props.details.recommendations.length > 0
     ) {
       return props.details.recommendations.map((movie, index) => (
-        <div className="App-list Card" key={"movie" + movie.id}>
+        <div
+          className="/*App-list*/ Card RecommendationCard"
+          key={"movie" + movie.id}
+        >
           <figure>
             {renderImage(movie)}
             <figcaption className="Movie-figcaption">{movie.title}</figcaption>
@@ -71,13 +74,9 @@ const DetailsComponent = (props: PropsType) => {
         <div className="App-details-data">
           {renderImage(props.details)}
           <div>
-            <h3>{props.details.title}</h3>
+            <h3 className="Details-caption">{props.details.title}</h3>
             <p className="Details-description">{props.details.overview}</p>
             <p>Release: {props.details.release_date}</p>
-            <p>
-              Recommendations available:{" "}
-              {recommendationsAvailable ? "TRUE" : "FALSE"}
-            </p>
           </div>
         </div>
         {recommendations()}

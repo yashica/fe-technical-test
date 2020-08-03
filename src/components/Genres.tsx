@@ -10,7 +10,7 @@ type PropsType = {
 
 const GenresComponent = (props: PropsType) => {
   let list = props.genres.sort().map((genre) => (
-    <div className="App-list Card" key={"genre_" + genre.id}>
+    <div className="/*App-list*/ Card GenreCard" key={"genre_" + genre.id}>
       <a onClick={() => props.onClick(genre.id)}>
         <span className="GenreName">{genre.name}</span>
       </a>
@@ -19,6 +19,7 @@ const GenresComponent = (props: PropsType) => {
 
   return (
     <div className="App-content">
+      <h2>Genre</h2>
       <div className="GenreContainer">{list}</div>
     </div>
   );

@@ -27,7 +27,7 @@ const MoviesComponent = (props: PropsType) => {
   };
 
   let list = props.movies.map((movie, index) => (
-    <div className="App-list Card" key={"movie" + movie.id}>
+    <div className="/*App-list*/ Card" key={"movie" + movie.id}>
       <a onClick={() => props.onClick(movie.id)}>
         <figure>
           {renderImage(index)}
