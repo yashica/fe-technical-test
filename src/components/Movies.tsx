@@ -23,6 +23,8 @@ const MoviesComponent = (props: PropsType) => {
     }
   };
 
+  /*Each movie will be displayed in a card, with movie poster(if available) as figure 
+  and title as figcaption*/
   let list = props.movies.map((movie, index) => (
     <div className="Card" key={"movie" + movie.id}>
       <a onClick={() => props.onClick(movie.id)}>

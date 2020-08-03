@@ -6,9 +6,12 @@ import { listenerCount } from "process";
 
 type PropsType = {
   details: MovieType;
+  onClick: (movieId_current: number, movieId_next: number) => any;
 };
 
 const DetailsComponent = (props: PropsType) => {
+  /*renderImage got an additional parameter imgClassName in order to enable different styling 
+  for details view image and recommendation card images */
   const renderImage = (movie: MovieType, imgClassName: string) => {
     console.log(movie.poster_path);
     if (movie.poster_path) {
@@ -21,7 +24,7 @@ const DetailsComponent = (props: PropsType) => {
     }
   };
 
-  //Do we have recommendations for that movie?
+  //Check, if we have recommendations for that movie
   const recommendationsAvailable =
     props.details.recommendations && props.details.recommendations.length > 0;
 
@@ -31,18 +34,24 @@ const DetailsComponent = (props: PropsType) => {
   }
 
   //Do we have recommendations for that movie?
-  //if yes, create a card view for each recommendation
+  //If yes, create a card view for each recommendation
   const getRecommendationList = () => {
     if (
       props.details.recommendations &&
       props.details.recommendations.length > 0
     ) {
       return props.details.recommendations.map((movie, index) => (
+        /*Each movie will be dispayed in a card containing the movie poster(if available) as figure 
+        and the title as figcaption*/
         <div className="Card RecommendationCard" key={"movie" + movie.id}>
-          <figure>
-            {renderImage(movie, "MovieRecCardImg")}
-            <figcaption className="Movie-figcaption">{movie.title}</figcaption>
-          </figure>
+          <a onClick={() => props.onClick(props.details.id, movie.id)}>
+            <figure>
+              {renderImage(movie, "MovieRecCardImg")}
+              <figcaption className="Movie-figcaption">
+                {movie.title}
+              </figcaption>
+            </figure>
+          </a>
         </div>
       ));
     } else {
