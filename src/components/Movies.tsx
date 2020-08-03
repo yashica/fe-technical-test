@@ -16,18 +16,15 @@ type PropsType = {
 const MoviesComponent = (props: PropsType) => {
   const renderImage = (index: number) => {
     console.log(props.movies[index].poster_path);
-    /*console.log(props.details.poster_path);*/
     if (props.movies[index].poster_path) {
       let path =
         "http://image.tmdb.org/t/p/w185" + props.movies[index].poster_path;
-      return (
-        <img src={path} className={"App-movie-poster"} alt={"movie-poster"} />
-      );
+      return <img src={path} className={"MovieCardImg"} alt={"movie-poster"} />;
     }
   };
 
   let list = props.movies.map((movie, index) => (
-    <div className="/*App-list*/ Card" key={"movie" + movie.id}>
+    <div className="Card" key={"movie" + movie.id}>
       <a onClick={() => props.onClick(movie.id)}>
         <figure>
           {renderImage(index)}
@@ -36,24 +33,6 @@ const MoviesComponent = (props: PropsType) => {
       </a>
     </div>
   ));
-
-  /*
-    let list = props.movies.map((movie) => (
-    <div className="App-list" key={"movie" + movie.id}>
-      <a onClick={() => props.onClick(movie.id)}>
-        <span>{movie.title}</span>
-      </a>
-    </div>
-  ));
-
-    */
-
-  /*
-    <figure id="blog1_figure2a">
-	        <img  class="blogimg" src="../img/babymenue_sugo.jpg" alt="Topf mit frischer Tomatensosse">
-	        <figcaption>Sugo kochen</figcaption>
-        </figure>
-    */
 
   return (
     <div className="App-content">

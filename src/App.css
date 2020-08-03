@@ -65,7 +65,8 @@ a {
 
 .Movie-figcaption {
   text-align: center;
-  width: 90%;
+  width: 150px;
+  word-wrap: break-word;
   color: #603403;
   font-weight: 500;
 }
@@ -129,11 +130,13 @@ a {
   position: relative;
 }
 
+.MovieCardImg {
+  width: 150px;
+}
+
 /*MovieGallery - Pagination*/
 .Pagination-container {
   width: 60vw;
-  /*max-width: 90%;*/
-  /*margin: auto;*/
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,8 +150,6 @@ ul.Pagination-container {
 }
 
 li.Pagination-page {
-  /*padding: 4px 10px;
-  margin: 0px 15px;*/
   padding: 5px;
   margin: 0;
   border-radius: 6px;
@@ -157,8 +158,6 @@ li.Pagination-page {
 }
 
 li.Pagination-active {
-  /*padding: 4px 10px;
-  margin: 0px 15px;*/
   padding: 5px;
   margin: 0;
   border-radius: 6px;
@@ -230,4 +229,8 @@ li.Pagination-active {
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
+}
+
+.MovieRecCardImg {
+  width: 100%;
 }

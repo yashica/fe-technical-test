@@ -9,13 +9,13 @@ type PropsType = {
 };
 
 const DetailsComponent = (props: PropsType) => {
-  const renderImage = (movie: MovieType) => {
+  const renderImage = (movie: MovieType, imgClassName: string) => {
     console.log(movie.poster_path);
     if (movie.poster_path) {
       let path = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
       return (
         <div>
-          <img src={path} className={"App-movie-poster"} alt={"movie-poster"} />
+          <img src={path} className={imgClassName} alt={"movie-poster"} />
         </div>
       );
     }
@@ -38,12 +38,9 @@ const DetailsComponent = (props: PropsType) => {
       props.details.recommendations.length > 0
     ) {
       return props.details.recommendations.map((movie, index) => (
-        <div
-          className="/*App-list*/ Card RecommendationCard"
-          key={"movie" + movie.id}
-        >
+        <div className="Card RecommendationCard" key={"movie" + movie.id}>
           <figure>
-            {renderImage(movie)}
+            {renderImage(movie, "MovieRecCardImg")}
             <figcaption className="Movie-figcaption">{movie.title}</figcaption>
           </figure>
         </div>
@@ -72,7 +69,7 @@ const DetailsComponent = (props: PropsType) => {
     <div className="App-content">
       <div className="Card DetailsCard">
         <div className="App-details-data">
-          {renderImage(props.details)}
+          {renderImage(props.details, "App-movie-poster")}
           <div>
             <h3 className="Details-caption">{props.details.title}</h3>
             <p className="Details-description">{props.details.overview}</p>
