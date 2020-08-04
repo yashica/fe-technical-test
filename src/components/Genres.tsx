@@ -19,7 +19,7 @@ const GenresComponent = (props: PropsType) => {
 
   return (
     <div className="App-content">
-      <h2>Genre</h2>
+      <h2>Genres</h2>
       <div className="GenreContainer">{list}</div>
     </div>
   );

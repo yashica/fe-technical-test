@@ -4,6 +4,12 @@ import "../App.css";
 import { MovieType } from "../redux/models/data/Movie";
 import { listenerCount } from "process";
 
+/*
+NOTE: The onClick has been added in order to be able to react on Clicks on movie recommendation cards.
+(see also )
+@param movieId_current: This will be used to push the current view to history.
+@param movieId_next: This is the id of the clicked movie recommendation. This movie should be be displayed in a new details view next.
+*/
 type PropsType = {
   details: MovieType;
   onClick: (movieId_current: number, movieId_next: number) => any;

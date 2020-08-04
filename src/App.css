@@ -56,7 +56,6 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  /*width: calc(50%-1rem);*/
 }
 
 .Card:hover {

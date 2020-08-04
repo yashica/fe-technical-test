@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+/*NOTE: useHistory has been added */
 import { useHistory, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -18,6 +19,7 @@ type PropsType = {
 
 const Details = (props: PropsType) => {
   let { movieId } = useParams();
+  /*NOTE: useHistory has been added */
   let history = useHistory();
 
   useEffect(() => {
@@ -26,7 +28,13 @@ const Details = (props: PropsType) => {
     props.dispatch(setLoading(false));
   }, []);
 
+  /*openMovie is called after a click on a recommended movie.
+  As a result, the currently displayed movie details view will be pushed to history.
+  TODO: Find our how to trigger that a new details view for the recommended movie is displayed.
+  */
   const openMovie = (movieId_current: number, movieId_next: number) => {
+    /*This already works: As the console output shows, 
+    openMovie is called on click on recommended movie card*/
     console.log(
       "!!!In containers/Details.tsx: openMovie " +
         movieId_next +
@@ -35,6 +43,8 @@ const Details = (props: PropsType) => {
     history.push("/details/" + movieId_current);
   };
 
+  /*The onClick has been added in order to be able to react 
+  on Clicks on movie recommendation cards inside the DetailsComponent*/
   return <DetailsComponent details={props.details} onClick={openMovie} />;
 };
 
