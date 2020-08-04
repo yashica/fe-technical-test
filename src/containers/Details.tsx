@@ -35,24 +35,23 @@ const Details = (props: PropsType) => {
 
   /*openMovie is called after a click on a recommended movie.
   As a result, the currently displayed movie details view will be pushed to history.
-  Additionally, I triggered the loading manually by calling the methods that are used above in useEffect()
+  Additionally, loading is triggered manually by calling the methods that are used above in useEffect()
   */
   const openMovie = (movieId_current: number, movieId_next: number) => {
-    /*As the console output shows, openMovie is called on click on recommended movie card*/
     console.log(
-      "!!!In containers/Details.tsx: openMovie has been called!\n " +
-        "Old movie id was: " +
-        movieId_current +
-        "\n" +
-        "Next movieID is: " +
-        movieId_next
+      `In containers/Details.tsx > openMovie 
+ Old movie id was: ${movieId_current}
+Next movieID is: ${movieId_next}`
     );
-    //let's try to trigger it manually
+
     history.push("/details/" + movieId_current);
+
+    //trigger loading details view manually
     props.dispatch(setLoading(true));
     props.dispatch(getMovieDetailsByIdAction(movieId_next));
     props.dispatch(setLoading(false));
-    //This works!
+    //scroll viewport to details section
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   /*The onClick has been added in order to be able to react 

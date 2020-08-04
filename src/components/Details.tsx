@@ -1,26 +1,17 @@
 import React from "react";
 import "../App.css";
 
-//let's try to use a hook
-//import { useDispatch } from "react-redux";
-//let's try to import the reducer directly
-//import { details } from "../redux/reducers/details";
-
 import { MovieType } from "../redux/models/data/Movie";
 import { listenerCount } from "process";
 
 /*
 NOTE: The onClick has been added in order to be able to react on Clicks on movie recommendation cards.
-(see also )
 @param movieId_current: This will be used to push the current view to history.
-@param movieId_next: This is the id of the clicked movie recommendation. This movie should be be displayed in a new details view next.
-*/
+@param movieId_next: This is the id of the clicked movie recommendation. This movie will be be displayed in a new details view.*/
 type PropsType = {
   details: MovieType;
   onClick: (movieId_current: number, movieId_next: number) => any;
 };
-//let's try to use a hook
-//const dispatch = useDispatch();
 
 const DetailsComponent = (props: PropsType) => {
   /*renderImage got an additional parameter imgClassName in order to enable different styling 
