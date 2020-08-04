@@ -1,6 +1,11 @@
 import React from "react";
 import "../App.css";
 
+//let's try to use a hook
+//import { useDispatch } from "react-redux";
+//let's try to import the reducer directly
+//import { details } from "../redux/reducers/details";
+
 import { MovieType } from "../redux/models/data/Movie";
 import { listenerCount } from "process";
 
@@ -14,6 +19,8 @@ type PropsType = {
   details: MovieType;
   onClick: (movieId_current: number, movieId_next: number) => any;
 };
+//let's try to use a hook
+//const dispatch = useDispatch();
 
 const DetailsComponent = (props: PropsType) => {
   /*renderImage got an additional parameter imgClassName in order to enable different styling 
@@ -49,6 +56,7 @@ const DetailsComponent = (props: PropsType) => {
       return props.details.recommendations.map((movie, index) => (
         /*Each movie will be dispayed in a card containing the movie poster(if available) as figure 
         and the title as figcaption*/
+        /*<a onClick={() => dispatch(details())}> */
         <div className="Card RecommendationCard" key={"movie" + movie.id}>
           <a onClick={() => props.onClick(props.details.id, movie.id)}>
             <figure>

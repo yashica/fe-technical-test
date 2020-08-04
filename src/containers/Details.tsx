@@ -22,7 +22,12 @@ const Details = (props: PropsType) => {
   /*NOTE: useHistory has been added */
   let history = useHistory();
 
+  /*
+  What does useEffect do? -> By using this Hook, you tell React that your component needs 
+  to do something after render. https://reactjs.org/docs/hooks-effect.html
+  */
   useEffect(() => {
+    console.log("In useEffect! MovieID that is used here is: " + movieId);
     props.dispatch(setLoading(true));
     props.dispatch(getMovieDetailsByIdAction(movieId));
     props.dispatch(setLoading(false));
@@ -30,17 +35,24 @@ const Details = (props: PropsType) => {
 
   /*openMovie is called after a click on a recommended movie.
   As a result, the currently displayed movie details view will be pushed to history.
-  TODO: Find our how to trigger that a new details view for the recommended movie is displayed.
+  Additionally, I triggered the loading manually by calling the methods that are used above in useEffect()
   */
   const openMovie = (movieId_current: number, movieId_next: number) => {
-    /*This already works: As the console output shows, 
-    openMovie is called on click on recommended movie card*/
+    /*As the console output shows, openMovie is called on click on recommended movie card*/
     console.log(
-      "!!!In containers/Details.tsx: openMovie " +
-        movieId_next +
-        "has been called!"
+      "!!!In containers/Details.tsx: openMovie has been called!\n " +
+        "Old movie id was: " +
+        movieId_current +
+        "\n" +
+        "Next movieID is: " +
+        movieId_next
     );
+    //let's try to trigger it manually
     history.push("/details/" + movieId_current);
+    props.dispatch(setLoading(true));
+    props.dispatch(getMovieDetailsByIdAction(movieId_next));
+    props.dispatch(setLoading(false));
+    //This works!
   };
 
   /*The onClick has been added in order to be able to react 
